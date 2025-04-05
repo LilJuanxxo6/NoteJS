@@ -1,11 +1,11 @@
 const router = require('express').Router(); // Importar el módulo express
 
 router.get('/users/signin', (req, res) => {
-    res.send('Ingresando a la aplicación')
+    res.render('users/signin') // Ruta de la página de inicio de sesión
 });
 
 router.get('/users/signup', (req, res) => {
-    res.send('Formulario de autenticación')
+    res.render('users/signup') // Ruta de la página de registro
 });
 
 module.exports = router; // Exportar el enrutador
