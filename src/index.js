@@ -1,9 +1,10 @@
-const express = require('express');
-const path = require('path');
+const express = require('express'); //Framework para crear el servidor
+const path = require('path'); //Modulo para manejar rutas
 const { create } = require('express-handlebars'); // Motor de plantillas
 const methodOverride = require('method-override'); // Middleware para sobreescribir el método de la petición
 const session = require('express-session'); // Middleware para manejar sesiones
 const llamadoDB = './database'; // Conexión a la base de datos
+const flash = require('connect-flash'); // Middleware para mostrar mensajes flash
 
 
 // Initiliazations
@@ -34,8 +35,15 @@ app.use(session({
     resave : true, //Reiniciar la sesión si no ha cambiado
     saveUninitialized: true //Guardar la sesión si no ha cambiado
 })); //Middleware para manejar sesiones
+app.use(flash()); //Middleware para mostrar mensajes flash
 
 // Global Variables
+app.use((req, res, next) =>{
+  res.locals.success_msg = req.flash('success_msg'); //Mensaje de éxito
+  res.locals.error_msg = req.flash('error_msg'); //Mensaje de error
+  next();
+});
+
 
 // Routes
 
