@@ -17,9 +17,11 @@
     {{else}}
         <div class="card mx-auto col-md-4">
             <div class="card-body">
+                <h1>Hello {{user.name}}</h1> <!-- Muestra el nombre del usuario -->
                 <h4 class="card-title">No notes found</h4>
                 <p class="card-text">Create a new note to get started.</p>
                 <a href="/notes/add" class="btn btn-success w-100">Create Note</a>
+            </div>
         </div>
     {{/each}}
 </div>

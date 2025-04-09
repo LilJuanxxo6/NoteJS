@@ -13,7 +13,8 @@ const NoteSchema = new Schema({
     date: {
         type: Date,
         default: Date.now // Establecer la fecha por defecto como la fecha actual
-    }
+    },
+    user: {type: String}
 });
 
 module.exports = mongoose.model('Note', NoteSchema); // Exportar el modelo de nota
